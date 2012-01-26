@@ -17,9 +17,14 @@ if (function_exists('register_sidebar')) {
 }
 
 
+// 2012-01-22 AVC
+// Without the call to register_nav_menus, the wp-admin > Appearance > Menus page >
+// Theme Locations section will show that "The current theme does not natively support 
+// menus..."
 function register_my_menus() {
-  register_nav_menus(
-    array('site-navigation' => __( 'Site Navigation' ) )
-  );
+    register_nav_menus(
+        array('main-navigation' => __( 'Main Navigation' ) )
+    );
 }
+
 add_action( 'init', 'register_my_menus' );
