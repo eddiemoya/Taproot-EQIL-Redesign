@@ -4,6 +4,9 @@
      margin-bottom: 80px;
 }
 
+#nav ul {
+    list-style: none;
+}
 #nav a.logo {
     display: block;
     width: 65px;
@@ -91,3 +94,17 @@
     font-weight: normal;
 }
 
+#nav li.current-menu-parent > a,
+#nav li.current-menu-item > a {
+    color: #0f5cac;
+    font-weight: bold;
+}
+#nav ul.sub-menu {
+    display:none;
+    border: 1px solid #000;
+    
+}
+#nav li.current-menu-parent ul.sub-menu {
+    display:block;
+    
+}
