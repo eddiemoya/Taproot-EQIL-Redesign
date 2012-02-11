@@ -78,7 +78,7 @@
 }
 
 #nav ul.menu.active a {
-    margin-left: 7px;
+    padding-left: 7px;
 }
 
 /* when level1 menu is not active, the non-active level1 menu items need to have 1px extra on the left, so that they line up with the active level2 menu items */
@@ -99,12 +99,23 @@
     color: #0f5cac;
     font-weight: bold;
 }
+
+#nav li.current-menu-parent > a {
+    background-color: #e1e1e1;
+}
 #nav ul.sub-menu {
     display:none;
     border: 1px solid #000;
+    margin-bottom: 0;
+    border: 1px solid #e1e1e1;
     
 }
-#nav li.current-menu-parent ul.sub-menu {
+#nav li.current-menu-parent ul.sub-menu,
+#nav li.current-menu-item ul.sub-menu{
     display:block;
     
+}
+
+#nav ul.menu.level1 > li.active {
+background-color: #e1e1e1;
 }
