@@ -10,7 +10,7 @@
         <a class="logo" href="/"><img src="<?php echo get_template_directory_uri(); ?>/img/logo.eqil.gif"></a>
 
         <div class="clear"></div>
-
+<!--
         <div class="rail_box outer nav">
             <ul class="rail_box menu level1 active gradient_offwhite">
                 <li><a class="active" href=".">Home</a></li>
@@ -23,7 +23,7 @@
                 <li><a href=".">About Us</a></li>
             </ul>
         </div>
-
+-->
         <?php
             // 2012-01-22 AVC
             // http://codex.wordpress.org/Function_Reference/wp_nav_menu
