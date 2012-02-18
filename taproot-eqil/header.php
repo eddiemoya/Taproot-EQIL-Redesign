@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/text.css" />
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/960_24_col.css" />
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/sticky_footer.css" />
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/master_do_not_use.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/main.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/nav.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/modules.css" />
