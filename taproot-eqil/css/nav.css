@@ -65,6 +65,7 @@
 }
 
 #nav ul.menu a.active,
+#nav ul.menu.level1.active > li:first-child > a, 
 #nav ul.menu.level1 > li.active > a,
 #nav ul.menu.level1 > li.current-menu-item > a,
 #nav ul.menu.level1 > li.current-menu-parent > a,
@@ -74,6 +75,7 @@
 }
 
 #nav ul.menu a.active, 
+#nav ul.menu.level1.active > li:first-child > a, 
 #nav ul.menu.level1 > li.active > a,
 #nav ul.menu.level1 > li.current-menu-item > a,
 #nav ul.menu.level1 > li.current-menu-parent > a,
@@ -86,14 +88,14 @@
 }
 
 #nav ul.menu.level1 > li.active,
-#nav ul.menu.level1 > li.current-menu-item,
-#nav ul.menu.level1 > li.current-menu-parent {
+#nav ul.menu.level1 > li.current-menu-item:not(:first-child),
+#nav ul.menu.level1 > li.current-menu-parent:not(:first-child) {
     background-color: #e1e1e1;
 }
 
 #nav ul.menu.level1 > li.active > a,
-#nav ul.menu.level1 > li.current-menu-item > a,
-#nav ul.menu.level1 > li.current-menu-parent > a {
+#nav ul.menu.level1 > li.current-menu-item:not(:first-child) > a,
+#nav ul.menu.level1 > li.current-menu-parent:not(:first-child) > a {
     padding: 4px 0 3px 0;
 }
 
