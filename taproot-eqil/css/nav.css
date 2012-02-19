@@ -49,14 +49,14 @@
 
 #nav ul.menu a.active,
 #nav ul.menu.level1 > li.active > a,
-#nav ul.menu.level1 > li.current-menu-item a,
+#nav ul.menu.level1 > li.current-menu-item > a,
 #nav ul.menu.level2 a {
     color: #0f5cac;
 }
 
 #nav ul.menu a.active, 
 #nav ul.menu.level1 > li.active > a,
-#nav ul.menu.level1 > li.current-menu-item a { 
+#nav ul.menu.level1 > li.current-menu-item > a { 
     font-family: "Arial Black", Gadget, sans-serif;
 }
 
