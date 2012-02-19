@@ -11,6 +11,10 @@
 
         <div class="clear"></div>
         <?php
+            function endsWith($str, $sub) {
+                return (substr($str, strlen($str) - strlen($sub)) === $sub);
+            }
+
             // 2012-01-22 AVC
             // http://codex.wordpress.org/Function_Reference/wp_nav_menu
             // If the menu is NOT defined in wp-admin > Appearance > Menus, 
@@ -19,7 +23,7 @@
                 array(
                     'menu' => 'Main Navigation',
                     'container_class' => 'rail_box outer nav',
-                    'menu_class' => 'rail_box menu level1 active gradient_offwhite'
+                    'menu_class' => 'rail_box menu level1' . (is_home() || endsWith(get_permalink(), '/home/') ? ' active gradient_offwhite' : '')
                 ) 
             ); 
         ?>
