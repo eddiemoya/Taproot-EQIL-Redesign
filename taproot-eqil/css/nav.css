@@ -93,3 +93,11 @@
     font-weight: normal;
 }
 
+/* hide all sub-menus as default; show only sub-menu for active parent menu */
+li.menu-item ul.sub-menu {
+    display: none;
+}
+
+li.menu-item.current-menu-item ul.sub-menu {
+    display: block;
+}
