@@ -15,13 +15,30 @@
     padding: 5px;
 }
 
-#nav ul.menu {
+#nav ul.menu,
+#nav ul.sub-menu {
     list-style-type: none;
     margin: 0;
 }
 
-#nav ul.menu.active {
+#nav ul.menu.active,
+#nav ul.menu.level1 > li.current-menu-item > ul.sub-menu,
+#nav ul.menu.level1 > li.current-menu-parent > ul.sub-menu {
     border: 1px solid #e1e1e1;
+}
+
+/* gradient style taken from .gradient_offwhite in main.css, applied here for ul.sub-menu */
+#nav ul.menu.level1 > li.current-menu-item > ul.sub-menu,
+#nav ul.menu.level1 > li.current-menu-parent > ul.sub-menu {
+    /* http://www.colorzilla.com/gradient-editor/#ffffff+0,f0f0f0+100;Custom */
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ffffff 0%, #f0f0f0 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f0f0f0)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#f0f0f0 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#f0f0f0 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#f0f0f0 100%); /* IE10+ */
+    background: linear-gradient(top,  #ffffff 0%,#f0f0f0 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f0f0f0',GradientType=0 ); /* IE6-9 */
 }
 
 /* 1px top/bottom padding for non-active level1 ul offsets 1px top/bottom border for active level1 ul */
@@ -50,13 +67,17 @@
 #nav ul.menu a.active,
 #nav ul.menu.level1 > li.active > a,
 #nav ul.menu.level1 > li.current-menu-item > a,
-#nav ul.menu.level2 a {
+#nav ul.menu.level1 > li.current-menu-parent > a,
+#nav ul.menu.level2 a,
+#nav ul.sub-menu a {
     color: #0f5cac;
 }
 
 #nav ul.menu a.active, 
 #nav ul.menu.level1 > li.active > a,
-#nav ul.menu.level1 > li.current-menu-item > a { 
+#nav ul.menu.level1 > li.current-menu-item > a,
+#nav ul.menu.level1 > li.current-menu-parent > a,
+#nav ul.menu.level1 > li.current-menu-parent > ul.sub-menu > li.current-menu-item > a { 
     font-family: "Arial Black", Gadget, sans-serif;
 }
 
@@ -64,19 +85,27 @@
     color: #707070;
 }
 
-#nav ul.menu.level1 > li.active {
+#nav ul.menu.level1 > li.active,
+#nav ul.menu.level1 > li.current-menu-item,
+#nav ul.menu.level1 > li.current-menu-parent {
     background-color: #e1e1e1;
 }
 
-#nav ul.menu.level1 > li.active > a {
+#nav ul.menu.level1 > li.active > a,
+#nav ul.menu.level1 > li.current-menu-item > a,
+#nav ul.menu.level1 > li.current-menu-parent > a {
     padding: 4px 0 3px 0;
 }
 
-#nav ul.menu.level2 a {
+#nav ul.menu.level2 a,
+#nav ul.menu.level1 > li.current-menu-item > ul.sub-menu a,
+#nav ul.menu.level1 > li.current-menu-parent > ul.sub-menu a {
     padding: 3px 0;
 }
 
-#nav ul.menu.active a {
+#nav ul.menu.active a,
+#nav ul.menu.level1 > li.current-menu-item > ul.sub-menu a,
+#nav ul.menu.level1 > li.current-menu-parent > ul.sub-menu a  {
     margin-left: 7px;
 }
 
@@ -89,15 +118,17 @@
     font-weight: bold;
 }
 
-#nav ul.menu.level2 > li > a {
+#nav ul.menu.level2 > li > a,
+#nav ul.sub-menu > li > a {
     font-weight: normal;
 }
 
-/* hide all sub-menus as default; show only sub-menu for active parent menu */
+/* only display submenu for the current active parent menu */
 li.menu-item ul.sub-menu {
     display: none;
 }
 
-li.menu-item.current-menu-item ul.sub-menu {
+li.menu-item.current-menu-item > ul.sub-menu,
+li.menu-item.current-menu-parent > ul.sub-menu {
     display: block;
 }
