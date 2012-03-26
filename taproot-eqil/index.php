@@ -17,6 +17,6 @@ if ( have_posts() ) {
 
 if ( is_single() ) { comments_template(); } // Pull in commentss.php if this is a 'single'
 
-
+get_sidebar('right');
 get_footer();
 
