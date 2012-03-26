@@ -80,4 +80,11 @@
 #modules form.email_signup .button:hover {
     cursor: pointer;
 }
+#modules .widget_links ul {
+    margin-bottom: 0px;
+}
+#modules .widget_links ul li {
+    margin-left: 10px;
+    display: inline;
+}
 
