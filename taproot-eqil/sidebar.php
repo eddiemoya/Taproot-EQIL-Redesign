@@ -11,19 +11,11 @@
 
         <div class="clear"></div>
         <?php
-            function endsWith($str, $sub) {
-                return (substr($str, strlen($str) - strlen($sub)) === $sub);
-            }
-
-            // 2012-01-22 AVC
-            // http://codex.wordpress.org/Function_Reference/wp_nav_menu
-            // If the menu is NOT defined in wp-admin > Appearance > Menus, 
-            // wp_nav_menu will fall back to wp_page_menu. 
             wp_nav_menu(
                 array(
                     'menu' => 'Main Navigation',
                     'container_class' => 'rail_box outer nav',
-                    'menu_class' => 'rail_box menu level1' . (is_home() || endsWith(get_permalink(), '/home/') ? ' active gradient_offwhite' : '')
+                    'menu_class' => 'rail_box menu level1' . (is_home() ? ' active gradient_offwhite' : '')
                 ) 
             ); 
         ?>
@@ -33,7 +25,12 @@
 
     <!-- start body -->
     <div id="body" class="grid_14">
-        <div id="carousel"></div>
+        <div id="carousel"><?php
+if( function_exists('FA_display_slider') ){
+    FA_display_slider(129);
+}
+?>
+</div>
 
         <div id="divider_bar"></div>
 
