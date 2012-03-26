@@ -4,10 +4,7 @@
  * @subpackage Birthday Club
  */
 ?>
-            </div>
-            <!-- end class="content" --> 
-        </div>
-        <!-- end body -->
+
 
         <!-- required for sticky footer -->
         <div class="push"></div>

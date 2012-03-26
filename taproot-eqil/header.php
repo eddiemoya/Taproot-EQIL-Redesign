@@ -15,21 +15,17 @@
     <meta charset="<?php bloginfo('charset'); ?>" />
     <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
     <link rel="canonical" href="<?php bloginfo('url'); ?>"/> 
-    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/reset.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/text.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/960_24_col.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/sticky_footer.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/main.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/nav.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/modules.css" />
     <?php wp_head(); ?>
 </head> 
 <body>
     <div class="container_24 wrapper"> 
-        <div id="header" class="grid_24 alpha omega">
-            <form class="search grid_5 push_18 alpha" action=".">
-                <input class="text" type="text" name="search">
-                    <button class="button" type="submit"><img src="<?php echo get_template_directory_uri(); ?>/img/search.magnify.png"></button>
-            </form>
+        <div id="header_wrapper">
+            <div id="header" class="grid_24 alpha omega">
+            
+                <form class="search grid_5 push_18 alpha" action=".">
+                    <input class="text" type="text" name="s">
+                        <button class="button" type="submit"><img src="<?php echo get_template_directory_uri(); ?>/img/search.magnify.png"></button>
+                </form>
+            </div>
         </div>
         <div class="clear"></div>
