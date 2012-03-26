@@ -4,7 +4,8 @@
  * @subpackage Default_Theme
  */
 
-get_header(); ?>
+get_header();
+get_sidebar(); ?>
 
 	<div id="content" class="narrowcolumn" role="main">
 
@@ -43,6 +44,6 @@ get_header(); ?>
 
 	</div>
 
-<?php get_sidebar(); ?>
+<?php get_sidebar('right'); ?>
 
 <?php get_footer(); ?>
