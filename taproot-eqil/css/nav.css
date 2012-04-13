@@ -1,25 +1,68 @@
 /* nav.css */
 
-#nav {
-     margin-bottom: 80px;
-}
+/* Left hand nav div changed from nav to logo */
 
-#nav a.logo {
+#logo a.logo {
     display: block;
     width: 65px;
     height: 108px;
     margin: 0 auto 15px;
 }
 
+#nav {
+	float:left;
+	width:100%;
+	background: #F00;
+	background: -moz-linear-gradient( top, #600, #300); /* CSS 3 */
+	font: 1.0em "Segoe UI", "Lucida Grande", Verdana, Arial, sans-serif;
+	border-top:1px solid #999;
+	border-bottom:2px solid #000;
+	margin-bottom: 20px;
+}
+
 #nav .rail_box.outer.nav {
     padding: 5px;
 }
 
-#nav ul.menu,
-#nav ul.sub-menu {
-    list-style-type: none;
-    margin: 0;
+#nav ul.menu {
+	list-style:none;
+	float:left;
+	width:100%;
+	padding: 0 10px;
 }
+
+#nav ul.menu li {
+	float: left;
+	position: relative;
+	margin-left: 0px;	
+}
+
+#nav ul.menu a {
+	padding:12px;
+	color:#eee;
+	text-decoration:none;
+	text-shadow:0 1px 0 #000;	
+}
+
+#nav ul.menu li:hover a {
+	background:#444;
+	border-top:1px solid #777;
+	border-bottom: 1px solid #000;
+	border-right:1px solid #666;	
+}
+
+/* Submenus */
+
+#nav ul.sub-menu {
+	list-style: none;
+	margin:0; /* Appear just below the hovering list */
+	padding:0;
+	width:200px; /* specify the width. */
+	position:absolute; /* needed */
+	z-index:500; 
+}
+
+
 
 #nav ul.menu.active,
 #nav ul.menu.level1 > li.current-menu-item > ul.sub-menu,
@@ -47,8 +90,8 @@
     padding-bottom: 1px;
 }
 
-#nav ul.menu li {
-    margin: 0;
+#nav ul.submenu li {
+    margin: 0px;
 }
 
 #nav ul.menu a {
@@ -62,6 +105,7 @@
     text-transform: uppercase;
     vertical-align: middle;
     white-space: normal;
+    padding: 0 10px;
 }
 
 #nav ul.menu a.active,
