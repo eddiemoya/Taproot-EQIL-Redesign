@@ -12,16 +12,9 @@
 #nav {
 	float:left;
 	width:100%;
-	background: #F00;
 	background: -moz-linear-gradient( top, #600, #300); /* CSS 3 */
-	font: 1.0em "Segoe UI", "Lucida Grande", Verdana, Arial, sans-serif;
-	border-top:1px solid #999;
-	border-bottom:2px solid #000;
+	font: 13px Arial, Helvetica, sans-serif;
 	margin-bottom: 20px;
-}
-
-#nav .rail_box.outer.nav {
-    padding: 5px;
 }
 
 #nav ul.menu {
@@ -39,21 +32,21 @@
 
 #nav ul.menu a {
 	padding:12px;
-	color:#eee;
+	color:#000;
+	font-size: 13px;
 	text-decoration:none;
 	text-shadow:0 1px 0 #000;	
 }
 
+/* Color change when hovered over */
 #nav ul.menu li:hover a {
-	background:#444;
-	border-top:1px solid #777;
-	border-bottom: 1px solid #000;
-	border-right:1px solid #666;	
+	color: #FFF;
+	background: #222;
 }
 
 /* Submenus */
 
-#nav ul.sub-menu {
+#nav ul.menu ul{
 	list-style: none;
 	margin:0; /* Appear just below the hovering list */
 	padding:0;
@@ -62,119 +55,40 @@
 	z-index:500; 
 }
 
-
-
-#nav ul.menu.active,
-#nav ul.menu.level1 > li.current-menu-item > ul.sub-menu,
-#nav ul.menu.level1 > li.current-menu-parent > ul.sub-menu {
-    border: 1px solid #e1e1e1;
+#nav ul.menu li ul {
+	top: 27px;
+	-moz-box-shadow:0 2px 10px #000;
 }
 
-/* gradient style taken from .gradient_offwhite in main.css, applied here for ul.sub-menu */
-#nav ul.menu.level1 > li.current-menu-item > ul.sub-menu,
-#nav ul.menu.level1 > li.current-menu-parent > ul.sub-menu {
-    /* http://www.colorzilla.com/gradient-editor/#ffffff+0,f0f0f0+100;Custom */
-    background: #ffffff; /* Old browsers */
-    background: -moz-linear-gradient(top,  #ffffff 0%, #f0f0f0 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f0f0f0)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  #ffffff 0%,#f0f0f0 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  #ffffff 0%,#f0f0f0 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  #ffffff 0%,#f0f0f0 100%); /* IE10+ */
-    background: linear-gradient(top,  #ffffff 0%,#f0f0f0 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f0f0f0',GradientType=0 ); /* IE6-9 */
+#nav ul.menu ul ul {
+	top: 0;
+	left: 100%;
+}
+	
+#nav ul.menu ul li {
+	float: none;
 }
 
-/* 1px top/bottom padding for non-active level1 ul offsets 1px top/bottom border for active level1 ul */
-#nav ul.menu.level1:not(.active) {
-    padding-top: 2px;
-    padding-bottom: 1px;
+/* Dropdowns */
+
+/* Hide all the dropdowns */
+#nav ul.menu ul,
+#nav ul.menu li:hover ul ul,
+#nav ul.menu ul li:hover ul ul {
+	display: none;
 }
 
-#nav ul.submenu li {
-    margin: 0px;
+/* Display the submenus when hovered */
+#nav ul.menu li:hover ul,
+#nav ul.menu ul li:hover ul,
+#nav ul.menu ul li ul li:hover ul {
+	display: block;
 }
 
-#nav ul.menu a {
-    color: #000;
-    display: block;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 10px;
-    line-height: 12px;
-    padding: 6px 0;
-    text-decoration: none;
-    text-transform: uppercase;
-    vertical-align: middle;
-    white-space: normal;
-    padding: 0 10px;
-}
-
-#nav ul.menu a.active,
-#nav ul.menu.level1.active > li:first-child > a, 
-#nav ul.menu.level1 > li.active > a,
-#nav ul.menu.level1 > li.current-menu-item > a,
-#nav ul.menu.level1 > li.current-menu-parent > a,
-#nav ul.menu.level2 a,
-#nav ul.sub-menu a {
-    color: #0f5cac;
-}
-
-#nav ul.menu a.active, 
-#nav ul.menu.level1.active > li:first-child > a, 
-#nav ul.menu.level1 > li.active > a,
-#nav ul.menu.level1 > li.current-menu-item > a,
-#nav ul.menu.level1 > li.current-menu-parent > a,
-#nav ul.menu.level1 > li.current-menu-parent > ul.sub-menu > li.current-menu-item > a { 
-    font-family: "Arial Black", Gadget, sans-serif;
-}
-
-#nav ul.menu a:hover {
-    color: #707070;
-}
-
-#nav ul.menu.level1 > li.active,
-#nav ul.menu.level1 > li.current-menu-item:not(:first-child),
-#nav ul.menu.level1 > li.current-menu-parent:not(:first-child) {
-    background-color: #e1e1e1;
-}
-
-#nav ul.menu.level1 > li.active > a,
-#nav ul.menu.level1 > li.current-menu-item:not(:first-child) > a,
-#nav ul.menu.level1 > li.current-menu-parent:not(:first-child) > a {
-    padding: 4px 0 3px 0;
-}
-
-#nav ul.menu.level2 a,
-#nav ul.menu.level1 > li.current-menu-item > ul.sub-menu a,
-#nav ul.menu.level1 > li.current-menu-parent > ul.sub-menu a {
-    padding: 3px 0;
-}
-
-#nav ul.menu.active a,
-#nav ul.menu.level1 > li.current-menu-item > ul.sub-menu a,
-#nav ul.menu.level1 > li.current-menu-parent > ul.sub-menu a  {
-    margin-left: 7px;
-}
-
-/* when level1 menu is not active, the non-active level1 menu items need to have 1px extra on the left, so that they line up with the active level2 menu items */
-#nav ul.menu.level1:not(.active) > li > a {
-    margin-left: 8px;
-}
-
-#nav ul.menu.level1 > li > a {
-    font-weight: bold;
-}
-
-#nav ul.menu.level2 > li > a,
-#nav ul.sub-menu > li > a {
-    font-weight: normal;
-}
-
-/* only display submenu for the current active parent menu */
-li.menu-item ul.sub-menu {
-    display: none;
-}
-
-li.menu-item.current-menu-item > ul.sub-menu,
-li.menu-item.current-menu-parent > ul.sub-menu {
-    display: block;
+/* Chance color of links when hovered */
+#nav ul.menu li * a.hover {
+	background: #600;
+	background: -moz-liner-gradient(top, #200, $400);
+	border-bottom: 1px solid #900;
+	border-top: 1px solid #222;
 }
