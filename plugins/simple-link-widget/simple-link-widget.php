@@ -2,7 +2,7 @@
 /*
 Plugin Name: Simple Link Widget
 Description: A simple way to add links to a sidebar, along with background images and alt text.
-Version: 0.1
+Version: 1.0
 Author: Eddie Moya
 */
 
