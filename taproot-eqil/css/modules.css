@@ -94,19 +94,21 @@
 }
 
 .widget.salsa-labs-signup input {
-    border: 1px solid #DDD;
-    height:18px;
-    padding:2px;
+    border: 1px solid #456C97;;
+    height:25px;
 }
 
 .widget.salsa-labs-signup input#email {
-    width:100px;
+    width: 130px;
+    text-align: center;
+    color: #777;
+    font-weight: bold;
 }
 
+
 .widget.salsa-labs-signup input#submit {
-    background-color: #456C97;
     padding: 4px;
-    height: 21px;
+    height: 28px;
     color: white;
     font-weight: bold;
 }
