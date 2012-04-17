@@ -88,3 +88,25 @@
     display: inline;
 }
 
+.widget_em_widget li {
+    margin-left: 0;
+    list-style: none;
+}
+
+.widget.salsa-labs-signup input {
+    border: 1px solid #DDD;
+    height:18px;
+    padding:2px;
+}
+
+.widget.salsa-labs-signup input#email {
+    width:100px;
+}
+
+.widget.salsa-labs-signup input#submit {
+    background-color: #456C97;
+    padding: 4px;
+    height: 21px;
+    color: white;
+    font-weight: bold;
+}
