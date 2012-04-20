@@ -33,15 +33,16 @@
 #nav ul.menu a {
 	padding:12px;
 	color:#000;
-	font-size: 13px;
+	font-size: 12px;
+	font-weight: bold;
 	text-decoration:none;
 	text-shadow:0 1px 0 #000;	
 }
 
 /* Color change when hovered over */
 #nav ul.menu li:hover a {
-	color: #FFF;
-	background: #222;
+	color: #2d6db5;
+	background: #E7E7E7;
 }
 
 /* Submenus */
