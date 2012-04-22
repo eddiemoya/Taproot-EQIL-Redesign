@@ -28,4 +28,13 @@
                 </form>
             </div>
         </div>
+        <!-- start nav -->
+	<div id="nav">
+	<?php
+	    wp_nav_menu(
+	        array('menu' => 'Main Navigation' ) 
+	    ); 
+	?>
+	<!-- end nav -->
+	</div>
         <div class="clear"></div>
