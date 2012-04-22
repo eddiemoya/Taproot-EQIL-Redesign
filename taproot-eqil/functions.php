@@ -75,3 +75,15 @@ function default_widget_layout(){
 }
 //action_hook('');
 
+function add_carousel(){ 
+    if(is_home()){
+        ?>
+        <div id="carousel">
+            <?php if (function_exists('FA_display_slider')) FA_display_slider(129); ?>
+        </div>
+
+        <div id="divider_bar"></div> 
+        <?php 
+    }
+}
+add_action('content-top', 'add_carousel');
