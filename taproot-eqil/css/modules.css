@@ -9,8 +9,8 @@
 }
 
 #modules .rail_box.inner {
-    margin: 10px 0;
-    padding: 16px 10px;
+    margin: 15px 0;
+    padding: 13px 10px 16px;
 }
 
 #modules .rail_box.inner:first-child {
@@ -88,3 +88,27 @@
     display: inline;
 }
 
+.widget_em_widget li {
+    margin-left: 0;
+    list-style: none;
+}
+
+.widget.salsa-labs-signup input {
+    border: 1px solid #456C97;;
+    height:25px;
+}
+
+.widget.salsa-labs-signup input#email {
+    width: 130px;
+    text-align: center;
+    color: #777;
+    font-weight: bold;
+}
+
+
+.widget.salsa-labs-signup input#submit {
+    padding: 4px;
+    height: 28px;
+    color: white;
+    font-weight: bold;
+}
