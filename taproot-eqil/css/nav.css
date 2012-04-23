@@ -24,9 +24,10 @@
 }
 
 #nav ul.menu li {
+	display: block;
 	float: left;
 	position: relative;
-	margin-left: 0px;	
+	margin-left: 0px;
 }
 
 #nav ul.menu li.menu-item > a {
@@ -45,7 +46,13 @@
 
 /* Dividers for top tier of menu */
 
+#nav ul.menu li a {
+	border-left: 1px #cacaca solid;
+}
 
+#nav ul.menu li:first-child a{
+	border-left: 0;
+}
 
 
 /* Color change when hovered over */
