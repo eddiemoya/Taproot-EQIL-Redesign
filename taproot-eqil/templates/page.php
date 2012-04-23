@@ -14,7 +14,6 @@
         <?php (!is_singular()) ? the_excerpt() : the_content(); ?>
     </div>
 
-    <!-- Optional widget section in the post footer-->
     <div class="post_footer">
         <?php if(!is_singular()): ?>
             <span class="permalink">
@@ -22,6 +21,5 @@
             </span>
         <?php endif; ?>
     </div>
-    <!-- Display a comma separated list of the Post's Categories. -->
 
 </div>

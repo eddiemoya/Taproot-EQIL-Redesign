@@ -23,7 +23,7 @@ $subpages = get_pages(array('parent' => $post->ID, 'hierarchical' => false, 'pos
 ?>
 <div id="subpages">
 <?php
-foreach($subpages as $page){
+foreach($subpages as $count => $page){
     //print_r($page);
     get_template_part('templates/subpage');   
     

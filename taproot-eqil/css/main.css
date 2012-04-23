@@ -83,7 +83,7 @@ a:hover {
 
 /* 2. #header styles */
 body > div.container_24.wrapper {
-    margin-top: 150px;
+    margin-top: 111px;
 }
 
 #header_wrapper {
@@ -167,7 +167,7 @@ body > div.container_24.wrapper {
 
 #body .content {
     background-color: #fff;
-    padding: 15px 20px 30px;
+    padding: 15px 5px 30px;
 }
 
 #body .content .title {
@@ -275,12 +275,17 @@ div.rail_box.outer {
 }
 
 #subpages .post {
-width: 200px;
-height: 200px;
-overflow: hidden;
+
 float: left;
-border: 1px solid #efefef;
-padding: 5px;
-margin: 5px;
+padding: 5px 0 0;
+margin-bottom: 10px;
+}
+
+#subpages .post .post_content {
+    border: 1px solid #efefef;
+    padding: 10px;
+}
+#subpages h2 {
+    font-size: 15px;
 }
 

@@ -29,7 +29,7 @@
             </div>
         </div>
         <!-- start nav -->
-        <div id="nav">
+        <div id="nav" class="grid_24 alpha omega">
             <?php wp_nav_menu( array('menu' => 'Main Navigation' ) ); ?>
 
         </div>
