@@ -1,4 +1,4 @@
-/*
+g/*
 main.css
 
 1. default styles
@@ -155,6 +155,7 @@ body > div.container_24.wrapper {
 /* 3. #body styles */
 
 #carousel {
+    margin-top: -15px;
 /*    height: 325px;*/
 }
 
@@ -271,5 +272,15 @@ div.rail_box {
 
 div.rail_box.outer {
     background-color: #f7f6f6;
+}
+
+#subpages .post {
+width: 200px;
+height: 200px;
+overflow: hidden;
+float: left;
+border: 1px solid #efefef;
+padding: 5px;
+margin: 5px;
 }
 

@@ -14,6 +14,5 @@
     
     <div id="body" class="grid_17">
 
-    <?php do_action('content-top'); ?>
-
-    <div class="content">
+        <div class="content">
+            <?php do_action('content-top'); ?>

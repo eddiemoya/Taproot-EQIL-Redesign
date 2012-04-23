@@ -87,3 +87,54 @@ function add_carousel(){
     }
 }
 add_action('content-top', 'add_carousel');
+
+function related_news(){
+    
+    if(is_page() && !is_home()){
+        
+        $category = get_the_category();
+        $category = $category[0];
+        
+        if(!empty($category) && $category->term_id != 0){
+            $news = new WP_Query( array('category' => $category->term_id, 'numberposts' => 1) );
+
+            if($news->have_posts()) {
+
+                ?><h2>News</h2><?php
+
+                loop($news, 'news-excerpt');
+            }
+        }
+    }
+}
+add_action('content-top', 'related_news');
+
+
+function register_post_categories() {
+    register_taxonomy_for_object_type('category', 'page');
+    add_post_type_support('page', 'category');
+}
+
+add_action('init', 'register_post_categories');
+
+function loop($loop_query, $template){
+
+    while($loop_query->have_posts()){
+
+        $loop_query->the_post();
+        get_template_part('templates/'. $template);
+    }
+    
+}
+
+function excerpt($limit, $text) {
+    $excerpt = explode(' ', $text, $limit);
+    if (count($excerpt) >= $limit) {
+        array_pop($excerpt);
+        $excerpt = implode(" ", $excerpt) . '...';
+    } else {
+        $excerpt = implode(" ", $excerpt);  
+    }
+    $excerpt = preg_replace('`\[[^\]]*\]`', '', $excerpt);
+    return $excerpt;
+}

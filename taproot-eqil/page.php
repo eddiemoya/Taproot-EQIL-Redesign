@@ -13,7 +13,24 @@ get_header();
 get_sidebar();
 the_post();
  
-get_template_part('templates/post');
+if(has_post_thumbnail()) get_the_post_thumbnail(null, array(190, 960));
+
+
+get_template_part('templates/page');
+
+$subpages = get_pages(array('parent' => $post->ID, 'hierarchical' => false, 'post_type' => 'page'));
+
+?>
+<div id="subpages">
+<?php
+foreach($subpages as $page){
+    //print_r($page);
+    get_template_part('templates/subpage');   
+    
+}
+?></div><?php
+
+
 
 get_sidebar('right');
 get_footer();

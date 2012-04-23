@@ -7,13 +7,11 @@
 get_header();
 get_sidebar();
 
-get_template_part('templates/hero');
-
 if ( have_posts() ) {
 	while ( have_posts() ){  
         
 		the_post(); 
-		get_template_part('templates/news');	
+		get_template_part('templates/post');	
 	}
 }
 
