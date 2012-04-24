@@ -284,6 +284,7 @@ margin-bottom: 10px;
 #subpages .post .post_content {
     border: 1px solid #efefef;
     padding: 10px;
+    height: 215px;
 }
 #subpages h2 {
     font-size: 15px;
