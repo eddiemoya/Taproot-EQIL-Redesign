@@ -13,6 +13,9 @@
     <!-- start body -->
     
     <div id="body" class="grid_17">
-
+        <?php if(is_page()){ ?>
+            <h1><?php the_title(); ?></h1>
+               <div id="divider_bar"></div> 
+        <?php } ?>
         <div class="content">
             <?php do_action('content-top'); ?>

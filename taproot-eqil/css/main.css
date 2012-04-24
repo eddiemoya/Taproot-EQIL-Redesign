@@ -1,4 +1,4 @@
-g/*
+/*
 main.css
 
 1. default styles
@@ -109,7 +109,7 @@ body > div.container_24.wrapper {
 }
 
 #header form.search {
-    margin-top: 75px;
+    margin-top: 100px;
 }
 
 #header form.search * {
@@ -286,7 +286,21 @@ margin-bottom: 10px;
     padding: 10px;
     height: 215px;
 }
+
 #subpages h2 {
     font-size: 15px;
 }
+
+
+body.page-child .news.post {
+    border-bottom: 10px solid #EFEFEF;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+body.page-child  #divider_bar {
+    margin:0;
+}
+
+
 
