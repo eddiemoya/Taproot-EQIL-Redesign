@@ -91,16 +91,21 @@
 .widget_em_widget li {
     margin-left: 0;
     list-style: none;
+    border-bottom: 1px solid #E1E1E1;
+    margin-bottom: 7px;
+}
+
+.widget_em_widget li > p {
+    margin-bottom: 7px;
 }
 
 .widget.salsa-labs-signup input {
     border: 1px solid #456C97;;
-    height:25px;
+    height:28px;
 }
 
 .widget.salsa-labs-signup input#email {
     width: 130px;
-    text-align: center;
     color: #777;
     font-weight: bold;
 }
