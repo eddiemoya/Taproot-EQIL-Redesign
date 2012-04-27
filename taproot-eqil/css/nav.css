@@ -128,6 +128,11 @@
     background-color: transparent;
 }
 
+#nav ul.menu ul.sub-menu ul {
+	top: -47px;
+	left: 100%;
+}
+
 /* Dropdowns */
 
 #nav ul.menu li.menu-item ul.sub-menu,
