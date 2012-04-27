@@ -11,7 +11,6 @@
 
 #nav {
 	float:left;
-	background: -moz-linear-gradient( top, #600, #300); /* CSS 3 */
 	font: 13px Arial, Helvetica, sans-serif;
 	margin-bottom: 10px;
     margin-top: 0;

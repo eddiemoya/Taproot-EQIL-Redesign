@@ -4,7 +4,7 @@ Donate link: http://wp-events-plugin.com
 Tags: events, event, event registration, event calendar, events calendar, event management, paypal, registration, ticket, tickets, ticketing, tickets, theme, widget, locations, maps, booking, attendance, attendee, buddypress, calendar, gigs, payment, payments, sports,
 Requires at least: 3.3
 Tested up to: 3.3.1
-Stable tag: 5.1.4
+Stable tag: 5.1.6
 
 Fully featured event registration management including recurring events, locations management, calendar, Google map integration, booking management
 
@@ -98,6 +98,61 @@ See our [FAQ](http://wp-events-plugin.com/documentation/faq/) page, which is upd
 6. Manage attendees with various booking reports
 
 == Changelog ==
+= 5.1.6 =
+* fixed multiple admin emails not going out
+* updated timthumb to v2.8.10
+* updated placeholder outputting to avoid overwriting longer variations of similarly named placeholders
+* fixed #_BOOKINGTICKETNAME not working
+* single location and event pages will still use location-single.php and event-single.php templates
+* fixed thumbnail image links on multisite to work with timthumb, thanks BinaryMoon for the tut!
+* Reduced sql calls for booking object instantiation. $EM_Booking->custom doesn't exist anymore, and notes must be loaded first with $EM_Booking->get_notes().
+* EM_Category->has_events() depreciated, returns false always
+* More wp_rewrite tweaks to improve compatability
+* fixed 24 hour formatting setting being ignored in timepicker
+* fixed bad datepickers in single ticket mode
+* fixed locations not being auto-approved if submitted via front-end and event is auto-approved.
+
+= 5.1.5 =
+* rewritten booking email function, simpler, less error-prone, overriedable and yet same effect
+* fixed tax not showing on booking table totals
+* fixed booking objects get_price filters, removed em_booking_get_prices from em-ticket-booking.php in place of em_ticket_booking_get_price
+* changed filter name em_tickets_bookings_get_prices to em_tickets_bookings_get_price (bad name according to convention)
+* admin email can be sent to multiple emails (comma delimited in settings)
+* added booking status message filter
+* added custom no events message in events widget
+* fixed ical not working in non-permalinks mode ( must have /?ical=1 at end of homt url )
+* removed original CSV export link in place of booking table exporter, unless users made a custom template
+* BuddyPress private group or normal private event info are now not shown in site activity.
+* fixed some php warnings
+* fixed certain languages breaking date formats
+* added #_EVENTCATEGORIESIMAGES
+* added yearly recurrences
+* added a cut-off date for bookings, so bookings can take place past event start dates
+* fixed some issues with dev mode checks
+* fixed booking button and multiple bookings at once bug
+* fixed ticket spaces export bug
+* fixed rss pubdate format
+* improved CSS for booking tables front-end
+* edit event locations dropdown shown to users if they can read events (previously only if could edit)
+* updated the POT file and Swedish translations
+* added #_CONTACTMETA placeholder
+* cleaned up the RSS filters so HTML now is allowed in feed
+
+= 5.1.4.3 =
+* fixed bp group hidden events not going private
+* fixed countries list not working for certain langauges
+
+= 5.1.4.1 =
+* fixed wp rewrite issue when assigned events page slug = events slug
+* fixed minimum ticket price placheholder problems
+* added dev version auto-updater
+* improved performance in events with booking widget listings
+* improved performance in date range searches (e.g. calendar)
+* reverted to using .delegate() instead of jQuery 1.7+ .on() listener for compatibility
+* slightly improved mail options logic and layout (plus php mail can send html emails now)
+* fixed buddypress conflict if groups component is disabled
+* fixed event spaces not overriding displayed values in booking stats pages
+
 = 5.1.4 =
 * pinpoint your location with dragable map markers!
 * sortable booking table collumns and additional collumns

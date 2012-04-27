@@ -173,6 +173,13 @@ function em_admin_warnings() {
 				<?php
 			}
 		}
+		if( !empty($_REQUEST['page']) && 'events-manager-options' == $_REQUEST['page'] && get_option('dbem_pro_dev_updates') == 1 ){
+			?>
+			<div id="message" class="updated">
+				<p><?php echo sprintf(__('Dev Mode active: Just a friendly reminder that you are updating to development versions. Only admins see this message, and it will go away when you disable this <a href="#pro-api">here</a> in your settings.','em-pro'),'<code>define(\'EMP_DEV_UPDATES\',true);</code>'); ?></p>
+			</div>
+			<?php
+		}
 	}
 	//Warn about EM page edit
 	if ( preg_match( '/(post|page).php/', $_SERVER ['SCRIPT_NAME']) && isset ( $_GET ['action'] ) && $_GET ['action'] == 'edit' && isset ( $_GET ['post'] ) && $_GET ['post'] == "$events_page_id") {
@@ -214,4 +221,35 @@ function em_plugin_action_links($actions, $file, $plugin_data) {
 	return $actions;
 }
 add_filter( 'plugin_action_links_events-manager/events-manager.php', 'em_plugin_action_links', 10, 3 );
+
+//Updates and Dev versions
+function em_updates_check( $transient ) {
+    // Check if the transient contains the 'checked' information
+    if( empty( $transient->checked ) )
+        return $transient;
+        
+    //only bother if we're checking for dev versions
+    if( get_option('em_check_dev_version') || get_option('dbem_pro_dev_updates') ){     
+	    //check WP repo for trunk version
+	    $request = wp_remote_get('http://plugins.svn.wordpress.org/events-manager/trunk/events-manager.php');
+	    
+	    preg_match('/Version: ([0-9a-z\.]+)/', $request['body'], $matches);
+	    
+	    if( !empty($matches[1]) ){
+	    	//we have a version number!
+		    if( version_compare($transient->checked[EM_SLUG], $matches[1]) < 0) {
+		    	$response = new stdClass();
+		    	$response->slug = EM_SLUG;
+				$response->new_version = $matches[1] ;
+		        $response->url = 'http://wordpress.org/extend/plugins/events-manager/';
+			    $response->package = 'http://downloads.wordpress.org/plugin/events-manager.zip';
+		       	$transient->response[EM_SLUG] = $response;
+		    }
+	    }
+	    delete_option('em_check_dev_version');
+    }
+    
+    return $transient;
+}
+add_filter('pre_set_site_transient_update_plugins', 'em_updates_check'); // Hook into the plugin update check and mod for dev version
 ?>

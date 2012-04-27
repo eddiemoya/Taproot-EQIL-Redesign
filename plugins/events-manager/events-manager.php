@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Events Manager
-Version: 5.1.4
+Version: 5.1.6
 Plugin URI: http://wp-events-plugin.com
 Description: Event registration and booking management for WordPress. Recurring events, locations, google maps, rss, ical, booking registration and more!
 Author: Marcus Sykes
@@ -26,11 +26,12 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-
 // Setting constants
-define('EM_VERSION', 5.13); //self expanatory
-define('EM_PRO_MIN_VERSION', 2.1); //self expanatory
+define('EM_VERSION', 5.147); //self expanatory
+define('EM_PRO_MIN_VERSION', 2.12); //self expanatory
 define('EM_DIR', dirname( __FILE__ )); //an absolute path to this directory
+define('EM_SLUG', plugin_basename( __FILE__ )); //for updates
+
 //EM_MS_GLOBAL
 if( get_site_option('dbem_ms_global_table') && is_multisite() ){
 	define('EM_MS_GLOBAL', true);
@@ -209,7 +210,6 @@ class EM_Scripts_and_Styles {
 	 */
 	function localize_script(){
 		global $em_localized_js;
-		$show24Hours = get_option('dbem_time_24h');
 		$locale_code = substr ( get_locale(), 0, 2 );
 		//Localize
 		$em_localized_js = array(
@@ -220,7 +220,7 @@ class EM_Scripts_and_Styles {
 			'locale' => $locale_code,
 			'bookingInProgress' => __('Please wait while the booking is being submitted.','dbem'),
 			'ui_css' => plugins_url('includes/css/jquery-ui-1.8.13.custom.css', __FILE__),
-			'show24hours' => $show24Hours,
+			'show24hours' => get_option('dbem_time_24h'),
 			'is_ssl' => is_ssl()
 		);
 		//logged in messages that visitors shouldn't need to see
@@ -524,7 +524,7 @@ add_action ( 'template_redirect', 'em_rss' );
  * @return boolean
  */
 function em_rss_pubdate_change($result){
-	if($result) update_option('em_rss_pubdate', date('D, d M Y H:i:s T'));
+	if($result) update_option('em_rss_pubdate', date('D, d M Y H:i:s ', current_time('timestamp', true)).'GMT');
 	return $result;
 }
 add_filter('em_event_save', 'em_rss_pubdate_change', 10,1);

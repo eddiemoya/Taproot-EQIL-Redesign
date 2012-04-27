@@ -212,7 +212,8 @@ class EM_Object {
 				}
 			}else{
 				//date range
-				$conditions['scope'] = " ( ( event_start_date <= CAST('$date_end' AS DATE) AND event_end_date >= CAST('$date_start' AS DATE) ) OR (event_start_date BETWEEN CAST('$date_start' AS DATE) AND CAST('$date_end' AS DATE)) OR (event_end_date BETWEEN CAST('$date_start' AS DATE) AND CAST('$date_end' AS DATE)) )";
+				//$conditions['scope'] = " ( ( event_start_date <= CAST('$date_end' AS DATE) AND event_end_date >= CAST('$date_start' AS DATE) ) OR (event_start_date BETWEEN CAST('$date_start' AS DATE) AND CAST('$date_end' AS DATE)) OR (event_end_date BETWEEN CAST('$date_start' AS DATE) AND CAST('$date_end' AS DATE)) )";
+				$conditions['scope'] = "( (event_start_date BETWEEN CAST('$date_start' AS DATE) AND CAST('$date_end' AS DATE)) OR (event_end_date BETWEEN CAST('$date_start' AS DATE) AND CAST('$date_end' AS DATE)) )";
 			}
 		} elseif ( preg_match ( "/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/", $scope ) ) {
 			//Scope can also be a specific date. However, if 'day', 'month', or 'year' are set, that will take precedence
@@ -1159,9 +1160,14 @@ class EM_Object {
 				     	$this->add_error( __('The image file is too big! Maximum size:', 'dbem')." $maximum_size");
 					}
 					$maximum_width = get_option('dbem_image_max_width'); 
-					$maximum_height = get_option('dbem_image_max_height'); 
+					$maximum_height = get_option('dbem_image_max_height');
+					$minimum_width = get_option('dbem_image_min_width'); 
+					$minimum_height = get_option('dbem_image_min_height');  
 				  	if (($width > $maximum_width) || ($height > $maximum_height)) { 
 						$this->add_error( __('The image is too big! Maximum size allowed:','dbem')." $maximum_width x $maximum_height");
+				  	}
+				  	if (($width < $minimum_width) || ($height < $minimum_height)) { 
+						$this->add_error( __('The image is too small! Minimum size allowed:','dbem')." $minimum_width x $minimum_height");
 				  	}
 				  	if ( empty($mime_type) || !array_key_exists($mime_type, $this->mime_types) ){ 
 						$this->add_error(__('The image is in a wrong format!','dbem'));

@@ -239,7 +239,7 @@ function em_init_actions() {
 					$registration = true;
 					//TODO do some ticket validation before registering the user
 					if ( $EM_Event->get_bookings()->get_available_spaces() >= $EM_Booking->get_spaces(true) ) {
-						if( !is_user_logged_in() && get_option('dbem_bookings_anonymous') && !get_option('dbem_bookings_registration_disable') ){
+						if( (!is_user_logged_in() || defined('EM_FORCE_REGISTRATION')) && get_option('dbem_bookings_anonymous') && !get_option('dbem_bookings_registration_disable') ){
 							//find random username - less options for user, less things go wrong
 							$username_root = explode('@', $_REQUEST['user_email']);
 							$username_rand = $username_root[0].rand(1,1000);
@@ -268,9 +268,10 @@ function em_init_actions() {
 									$EM_Notices->add_error( get_option('dbem_booking_feedback_reg_error') );
 								}
 							}
-						}elseif( !is_user_logged_in() && get_option('dbem_bookings_registration_disable') ){
+						}elseif( (!is_user_logged_in() || defined('EM_FORCE_REGISTRATION')) && get_option('dbem_bookings_registration_disable') ){
 							//Validate name, phone and email
 							$user_data = array();
+							if( empty($EM_Booking->booking_meta['registration']) ) $EM_Booking->booking_meta['registration'] = array();
 							// Check the e-mail address
 							if ( $_REQUEST['user_email'] == '' ) {
 								$registration = false;
@@ -333,12 +334,12 @@ function em_init_actions() {
 			//ADD/EDIT Booking
 			em_verify_nonce('booking_add_one');
 			if( !$EM_Event->get_bookings()->has_booking(get_current_user_id()) || get_option('dbem_bookings_double')){
-				$EM_Booking = new EM_Booking(array('person_id'=>get_current_user_id(), 'event_id'=>$EM_Event->event_id)); //new booking
-				$EM_Ticket = $EM_Event->get_bookings()->get_tickets()->get_first();			
+				$EM_Booking = new EM_Booking(array('person_id'=>get_current_user_id(), 'event_id'=>$EM_Event->event_id, 'booking_spaces'=>1)); //new booking
+				$EM_Ticket = $EM_Event->get_bookings()->get_tickets()->get_first();	
 				//get first ticket in this event and book one place there. similar to getting the form values in EM_Booking::get_post_values()
 				$EM_Ticket_Booking = new EM_Ticket_Booking(array('ticket_id'=>$EM_Ticket->ticket_id, 'ticket_booking_spaces'=>1));
-				$EM_Booking->get_tickets_bookings();
-				$EM_Booking->tickets_bookings->booking = $EM_Booking;
+				$EM_Booking->tickets_bookings = new EM_Tickets_Bookings();
+				$EM_Booking->tickets_bookings->booking = $EM_Ticket_Booking->booking = $EM_Booking;
 				$EM_Booking->tickets_bookings->add( $EM_Ticket_Booking );
 				//Now save booking
 				if( $EM_Event->get_bookings()->add($EM_Booking) ){
@@ -447,7 +448,7 @@ function em_init_actions() {
 		}elseif( $_REQUEST['action'] == 'booking_resend_email' ){
 			em_verify_nonce('booking_resend_email_'.$EM_Booking->booking_id);
 			if( $EM_Booking->can_manage('manage_bookings','manage_others_bookings') ){
-				if( $EM_Booking->email(false) ){
+				if( $EM_Booking->email(false, true) ){
 					$EM_Notices->add_confirm( __('Mail Sent.','dbem'), true );
 					$redirect = !empty($_REQUEST['redirect_to']) ? $_REQUEST['redirect_to'] : wp_get_referer();
 					wp_redirect( $redirect );
@@ -455,7 +456,7 @@ function em_init_actions() {
 				}else{
 					$result = false;
 					$EM_Notices->add_error( __('ERROR : Mail Not Sent.','dbem') );			
-					$feedback = $EM_Booking->feedback_message;	
+					$feedback = $EM_Booking->feedback_message;
 				}	
 			}
 		}
@@ -605,11 +606,12 @@ function em_init_actions() {
 		$show_tickets = !empty($_REQUEST['show_tickets']);
 		$EM_Bookings_Table = new EM_Bookings_Table($show_tickets);
 		$EM_Bookings_Table->limit = 0;
-		header("Content-Type: application/octet-stream");
+		header("Content-Type: application/octet-stream; charset=utf-8");
 		header("Content-Disposition: Attachment; filename=".sanitize_title(get_bloginfo())."-bookings-export.csv");
 		echo sprintf(__('Exported booking on %s','dbem'), date_i18n('D d M Y h:i', current_time('timestamp'))) .  "\n";
 		echo '"'. implode('","', $EM_Bookings_Table->get_headers(true)). '"' .  "\n";
 		//Rows
+		$handle = fopen("php://output", "w");
 		foreach( $EM_Bookings_Table->get_bookings() as $EM_Booking ) {
 			//Display all values
 			/* @var $EM_Booking EM_Booking */
@@ -617,23 +619,14 @@ function em_init_actions() {
 			if( $show_tickets ){
 				foreach($EM_Booking->get_tickets_bookings()->tickets_bookings as $EM_Ticket_Booking){
 					$row = $EM_Bookings_Table->get_row_csv($EM_Ticket_Booking);
-					foreach( $row as $value){
-						$value = str_replace('"', '""', $value);
-						$value = str_replace("=", "", $value);
-						echo '"' .  preg_replace("/\n\r|\r\n|\n|\r/", ".     ", $value) . '",';
-					}
-					echo "\n";
+					fputcsv($handle, $row);
 				}
 			}else{
 				$row = $EM_Bookings_Table->get_row_csv($EM_Booking);
-				foreach( $row as $value){
-					$value = str_replace('"', '""', $value);
-					$value = str_replace("=", "", $value);
-					echo '"' .  preg_replace("/\n\r|\r\n|\n|\r/", ".     ", $value) . '",';
-				}
-				echo "\n";
+				fputcsv($handle, $row);
 			}
 		}
+		fclose($handle);
 		exit();
 	}
 }  

@@ -55,11 +55,6 @@ class EM_Ticket extends EM_Object{
 				global $wpdb;
 				$sql = "SELECT * FROM ". EM_TICKETS_TABLE ." WHERE ticket_id ='$ticket_data'";   
 			  	$ticket = $wpdb->get_row($sql, ARRAY_A);
-			  	//Ticket notes
-			  	$notes = $wpdb->get_results("SELECT * FROM ". EM_META_TABLE ." WHERE meta_key='ticket-note' AND object_id ='$ticket_data'", ARRAY_A);
-			  	foreach($notes as $note){
-			  		$this->notes[] = unserialize($note['meta_value']);
-			  	}
 			}
 			//Save into the object
 			$this->to_object($ticket);
@@ -68,6 +63,19 @@ class EM_Ticket extends EM_Object{
 		}
 		$this->compat_keys();
 		do_action('em_ticket',$this, $ticket_data);
+	}
+	
+	function get_notes(){
+		global $wpdb;
+		if( !is_array($this->notes) && !empty($this->ticket_id) ){
+		  	$notes = $wpdb->get_results("SELECT * FROM ". EM_META_TABLE ." WHERE meta_key='ticket-note' AND object_id ='{$this->ticket_id}'", ARRAY_A);
+		  	foreach($notes as $note){
+		  		$this->ticket_id[] = unserialize($note['meta_value']);
+		  	}
+		}elseif( empty($this->booking_id) ){
+			$this->notes = array();
+		}
+		return $this->notes;
 	}
 	
 	/**
@@ -165,10 +173,11 @@ class EM_Ticket extends EM_Object{
 	
 	function is_available(){
 		$timestamp = current_time('timestamp');
+		$EM_Event = $this->get_event();
 		$available_spaces = $this->get_available_spaces();
 		$condition_1 = (empty($this->ticket_start) || $this->start_timestamp <= $timestamp);
-		$condition_2 = ($this->end_timestamp >= $timestamp || empty($this->ticket_end));
-		$condition_3 = $this->get_event()->end > $timestamp;
+		$condition_2 = $this->end_timestamp + 86400 >= $timestamp || empty($this->ticket_end);
+		$condition_3 = $EM_Event->start > $timestamp || strtotime($EM_Event->event_rsvp_date) > $timestamp;
 		if( $condition_1 && $condition_2 && $condition_3 ){
 			//Time Constraints met, now quantities
 			if( $available_spaces > 0 && ($available_spaces >= $this->ticket_min || empty($this->ticket_min)) ){
@@ -187,7 +196,7 @@ class EM_Ticket extends EM_Object{
 		if( is_numeric(get_option('dbem_bookings_tax')) && get_option('dbem_bookings_tax') > 0 ){
 			//tax could be added here
 			if( $add_tax === true || ($add_tax !== false && get_option('dbem_bookings_tax_auto_add')) ){
-				$price = number_format($price * (1 + get_option('dbem_bookings_tax')/100),2);				
+				$price = round($price * (1 + get_option('dbem_bookings_tax')/100),2);				
 			}
 		}
 		if($format){

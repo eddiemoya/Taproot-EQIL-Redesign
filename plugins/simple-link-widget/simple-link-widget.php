@@ -2,7 +2,7 @@
 /*
 Plugin Name: Simple Link Widget
 Description: A simple way to add links to a sidebar, along with background images and alt text.
-Version: 1.0
+Version: 0.1
 Author: Eddie Moya
 */
 
@@ -26,6 +26,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 class Simple_Link_Widget extends WP_Widget {
     
     /**
+     * Adds an action that callback to a self-registering method.
      * @author Eddie Moya
      */
     function register_widget(){
@@ -33,6 +34,9 @@ class Simple_Link_Widget extends WP_Widget {
     }
     
     /**
+     * Self registers this class.
+     * 
+     * @uses register_widget()
      * @author Eddie Moya
      */
     function _register_widget(){
