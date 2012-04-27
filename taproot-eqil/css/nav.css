@@ -8,6 +8,19 @@
     height: 108px;
     margin: 0 auto 15px;
 }
+
+.menu-main-navigation-container {
+    position: relative;
+    float: left;
+    left: 50%;
+}
+
+#menu-main-navigation {
+    position: relative;
+    float: left;
+    right: 50%;
+}
+
 #nav {
 	float:left;
 	font: 13px Arial, Helvetica, sans-serif;
