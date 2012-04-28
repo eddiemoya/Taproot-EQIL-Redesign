@@ -25,7 +25,7 @@
 	float:left;
 	font: 13px Arial, Helvetica, sans-serif;
 	margin-bottom: 10px;
-    margin-top: 0;
+    	margin-top: 16px;
 	letter-spacing: 1px;
 }
 #nav ul.menu {
@@ -110,7 +110,7 @@
 	width: auto; /* specify the width. */
 	position:absolute; /* needed */
 	z-index:500; 
-    background-color: #e7e7e7;
+    	background-color: #e7e7e7;
 }
 
 	
