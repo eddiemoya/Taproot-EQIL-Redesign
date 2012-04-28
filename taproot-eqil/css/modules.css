@@ -1,0 +1,125 @@
+/* modules.css */
+
+#modules {
+    margin-bottom: 80px;
+}
+
+#modules .rail_box.outer {
+    padding: 10px;
+}
+
+#modules .rail_box.inner {
+    margin: 15px 0;
+    padding: 13px 10px 16px;
+}
+
+#modules .rail_box.inner:first-child {
+    margin-top: 0;
+}
+
+#modules .rail_box.inner:last-child {
+    margin-bottom: 0;
+}
+
+#modules .header {
+    color: #0f5cac;
+    display: block;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+#modules .body,
+#modules .event .date {
+    font-size: 11px;
+    line-height: 14px;
+}
+
+#modules .event .date {
+    color: #0f5cac;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#modules .event {
+    border-bottom: 1px solid #e1e1e1;
+    margin: 0.5em 0;
+    padding-bottom: 0.5em;
+}
+
+#modules .support_us * {
+    color: #fff;
+}
+
+#modules form.email_signup .text {
+    width: 120px;
+    height: 20px;
+    border: 1px solid #456c97;
+    color: #707070;
+    float: left;
+    font-weight: bold;
+    margin-right: 1px;
+    padding: 0;
+    text-transform: uppercase;
+    text-transform: lowercase;
+    vertical-align: middle;
+}
+
+#modules form.email_signup .button {
+    width: 23px;
+    height: 22px;
+    border: 1px solid #456c97;
+    color: #fff;
+    font-weight: bold;
+    padding: 0;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+#modules form.email_signup .button:hover {
+    cursor: pointer;
+}
+#modules .widget_links ul {
+    margin-bottom: 0px;
+}
+#modules .widget_links ul li {
+    margin-left: 10px;
+    display: inline;
+}
+
+.widget_em_widget li {
+    margin-left: 0;
+    list-style: none;
+    border-top: 1px solid #E1E1E1;
+    margin-top: 7px;
+    padding-top: 7px;
+}
+
+.widget_em_widget li:first-child {
+    border-top: 0 none;
+    margin-top: 0;
+}
+
+.widget_em_widget li > p {
+    margin-bottom: 7px;
+}
+
+.widget.salsa-labs-signup input {
+    border: 1px solid #456C97;;
+    height:28px;
+}
+
+.widget.salsa-labs-signup input#email {
+    width: 130px;
+    color: #777;
+    font-weight: bold;
+}
+
+
+.widget.salsa-labs-signup input#submit {
+    padding: 4px;
+    height: 28px;
+    color: white;
+    font-weight: bold;
+}

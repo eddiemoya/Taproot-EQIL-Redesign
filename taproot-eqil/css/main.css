@@ -1,0 +1,306 @@
+/*
+main.css
+
+1. default styles
+2. #header styles
+3. #body styles
+4. #footer styles
+5. rail box styles
+*/
+
+
+
+/* 1. default styles */
+
+body {
+    background-color: #fbfbfb;
+}
+
+* {
+    color: #282828;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    color: #0f5cac;
+    font-size: 9px;
+    font-weight: 900;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.gradient_blue,
+#modules .gradient_offwhite.widget_links:first-child {
+    /* http://www.colorzilla.com/gradient-editor/#456c97+0,517daa+50,6294c9+100;Custom */
+    background: #456c97; /* Old browsers */
+    background: -moz-linear-gradient(top,  #456c97 0%, #517daa 50%, #6294c9 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#456c97), color-stop(50%,#517daa), color-stop(100%,#6294c9)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #456c97 0%,#517daa 50%,#6294c9 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #456c97 0%,#517daa 50%,#6294c9 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #456c97 0%,#517daa 50%,#6294c9 100%); /* IE10+ */
+    background: linear-gradient(top,  #456c97 0%,#517daa 50%,#6294c9 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#456c97', endColorstr='#6294c9',GradientType=0 ); /* IE6-9 */
+}
+
+.gradient_offwhite {
+    /* http://www.colorzilla.com/gradient-editor/#ffffff+0,f0f0f0+100;Custom */
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ffffff 0%, #f0f0f0 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f0f0f0)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#f0f0f0 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#f0f0f0 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#f0f0f0 100%); /* IE10+ */
+    background: linear-gradient(top,  #ffffff 0%,#f0f0f0 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f0f0f0',GradientType=0 ); /* IE6-9 */
+}
+
+#modules .gradient_offwhite.widget_links:first-child {
+    position: relative;
+}
+#modules .gradient_offwhite.widget_links:first-child ul {
+   margin-top: -15px;
+   margin-bottom: 22px;
+}
+#modules .gradient_offwhite.widget_links:first-child .widgettitle,
+#modules .gradient_offwhite.widget_links:first-child ul li{
+    color:#fff;
+}
+#modules .gradient_offwhite.widget_links:first-child ul li {
+    white-space: pre-wrap;
+    font-size: 11px;
+}
+#modules .gradient_offwhite.widget_links:first-child a {
+    position: absolute;
+    
+    bottom: 8px;
+    left: 12px;
+}
+
+/* 2. #header styles */
+body > div.container_24.wrapper {
+    margin-top: 111px;
+}
+
+#header_wrapper {
+    background-color: #366595;
+    overflow: hidden;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#header {
+    width: 960px;
+    height: 139px;
+    background: url("../img/logotype.png") 115px 70px no-repeat, url("../img/type.outline.png") center 38px no-repeat;
+    background-color: #366595;
+    margin-bottom: 0px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    float: none;
+}
+
+#header form.search {
+    margin-top: 100px;
+}
+
+#header form.search * {
+    margin: 0;
+    padding: 0;
+}
+
+#header form.search .text {
+    width: 155px;
+    height: 20px;
+    color: #555;
+    float: left;
+    font-weight: bold;
+    margin-right: 5px;
+    padding-left: 3px;
+}
+
+#header form.search .button {
+    width: 25px;
+    height: 22px;
+}
+
+#header form.search .text,
+#header form.search .button {
+    background-color: #d9dadb;
+    border: 1px solid #b4b9bf;
+    opacity: 0.65;
+    vertical-align: middle;
+}
+
+#header form.search .text:focus,
+#header form.search .button:hover {
+    background-color: #fff;
+    opacity: 1.0;
+}
+
+#header form.search .button:hover {
+    cursor: pointer;
+}
+
+
+
+/* 3. #body styles */
+
+#carousel {
+    margin-top: -15px;
+/*    height: 325px;*/
+}
+
+#divider_bar {
+    height: 25px;
+    background-color: #80b8dc;
+    margin: 10px 0;
+}
+
+#body .content {
+    background-color: #fff;
+    padding: 15px 5px 30px;
+}
+
+#body .content .title {
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+#body .content h1 {
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 26px;
+    margin-bottom: 0;
+    text-transform: capitalize;
+}
+
+#body .content h2 {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 18px;
+    margin: 1em 0 0;
+    text-transform: uppercase;
+}
+
+#body .content .date {
+    color: #707070;
+    font-size: 11px;
+    line-height: 18px;
+    text-transform: capitalize;
+}
+
+#body .content .body {
+    font-size: 12px;
+}
+
+
+
+/* 4. #footer styles */
+
+#footer_top {
+    width: 100%;
+    height: 170px;
+    background-color: #e5e5e5;
+}
+
+#footer_top > div {
+    width: 150px;
+    height: 125px;
+    float: left;
+    margin-top: 10px;
+}
+
+#footer_top .header {
+    color: #000;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+#footer_top .body {
+    color: #363636;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    line-height: 12px;
+}
+
+#footer_bottom {
+    width: 100%;
+    height: 35px;
+    background-color: #366595;
+    position: absolute;
+    left: 0;
+}
+
+
+#footer_bottom ul {
+    list-style-type: none;
+    margin: 5px auto;
+    width: 960px;
+}
+
+#footer_bottom li {
+    float: left;
+    margin: 0 10px;
+}
+
+#footer_bottom a {
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+
+/* 5. rail box styles */
+
+div.rail_box {
+    border: 1px solid #e1e1e1;
+}
+
+div.rail_box.outer {
+    background-color: #f7f6f6;
+}
+
+#subpages .post {
+
+float: left;
+padding: 5px 0 0;
+margin-bottom: 10px;
+}
+
+#subpages .post .post_content {
+    border: 1px solid #efefef;
+    padding: 10px;
+    height: 215px;
+}
+
+#subpages h2 {
+    font-size: 15px;
+}
+
+
+body.page-child .news.post {
+    border-bottom: 10px solid #EFEFEF;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+body.page-child  #divider_bar {
+    margin:0;
+}
+
+
+
