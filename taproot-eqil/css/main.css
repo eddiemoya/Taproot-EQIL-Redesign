@@ -65,7 +65,7 @@ a:hover {
 }
 #modules .gradient_offwhite.widget_links:first-child ul {
    margin-top: -15px;
-   margin-bottom: 22px;
+   margin-bottom: 25px;
 }
 #modules .gradient_offwhite.widget_links:first-child .widgettitle,
 #modules .gradient_offwhite.widget_links:first-child ul li{
@@ -78,8 +78,8 @@ a:hover {
 #modules .gradient_offwhite.widget_links:first-child a {
     position: absolute;
     
-    bottom: 8px;
-    left: 12px;
+    bottom: 5px;
+    left: 10px;
 }
 
 /* 2. #header styles */
