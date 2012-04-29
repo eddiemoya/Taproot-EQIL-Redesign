@@ -9,21 +9,30 @@
     margin: 0 auto 15px;
 }
 
+.menu-main-navigation-container {
+    position: relative;
+    float: left;
+    left: 50%;
+}
+
+#menu-main-navigation {
+    position: relative;
+    float: left;
+    right: 50%;
+}
+
 #nav {
 	float:left;
-	background: -moz-linear-gradient( top, #600, #300); /* CSS 3 */
 	font: 13px Arial, Helvetica, sans-serif;
 	margin-bottom: 10px;
     margin-top: 0;
 	letter-spacing: 1px;
 }
-
 #nav ul.menu {
 	list-style:none;
 	float:left;
 	width:100%;
 }
-
 #nav ul.menu li {
 	display: block;
 	float: left;
@@ -117,6 +126,11 @@
     font-weight: normal;
     padding: 5px 10px;
     background-color: transparent;
+}
+
+#nav ul.menu ul.sub-menu ul {
+	top: -47px;
+	left: 100%;
 }
 
 /* Dropdowns */

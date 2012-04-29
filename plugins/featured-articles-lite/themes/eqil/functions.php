@@ -33,4 +33,8 @@ function fa_eqil_theme_details( $defaults ){
 	
 }
 add_filter('fa-theme-details-eqil', 'fa_eqil_theme_details', 1);
-?>
+
+
+/**
+ * Outputs the read-more link
+ */

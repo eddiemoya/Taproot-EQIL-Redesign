@@ -4,6 +4,7 @@
  #carousel {
      overflow: hidden;
  }
+ 
 .FA_overall_container_smoke {
 	display:block;
 	position:relative;
@@ -19,6 +20,10 @@
 
 div.FA_overall_container_smoke.dark {
     border: none;
+}
+
+div.FA_overall_container_smoke.dark > a {
+    display: none !important;
 }
 .FA_overall_container_smoke  a:focus {
 	outline:0px;
@@ -41,7 +46,7 @@ focus {
 	display:block;
 	position:relative;
 	clear:both;
-	height:300px;
+	height:317px;
 	overflow:hidden;
 	width:100%;
 }
@@ -58,16 +63,16 @@ focus {
 	overflow:hidden;
 	text-align:justify;
 }
-	.FA_overall_container_smoke .FA_featured_articles .FA_wrap{
-		background:url(smoke.png);
-		width:25%;
-		padding:20px;
-		height:100%;
-		margin-right:10%;
-		display:block;
-		position:relative;
-		overflow:hidden;
-	}
+.FA_overall_container_smoke .FA_featured_articles .FA_wrap{
+    background: url(smoke.png);
+    width: 96%;
+    padding: 2%;
+    height: 15%;
+    display: block;
+    position: absolute;
+    overflow: hidden;
+    bottom: 0;
+}
 	.FA_overall_container_smoke .FA_featured_articles .FA-remove-bg{
 		background:none;
 	}
@@ -97,11 +102,11 @@ focus {
 }
 
 .FA_overall_container_smoke .FA_featured_articles .FA_article p{
-	font-size:12px; 
-	color:#FFF;
-	margin:0px;
-	padding:30px 0px 30px;
-	line-height:18px;
+    font-size: 15px;
+    color: white;
+    margin: 0px;
+    line-height: 27px;
+    width: 84%;
 }
 .FA_overall_container_smoke .FA_featured_articles .FA_article p a{
 	color:#FFF !important;
@@ -111,9 +116,9 @@ focus {
 	color:#ccc;
 	padding:0px;
 	text-decoration:none;
-	background:url(smoke.png);
-	padding:10px;
-	float:right;
+/*	background:url(smoke.png);*/
+/*	padding:10px;*/
+/*	float:right;*/
 }
 /*
 .FA_overall_container_smoke .FA_back{
@@ -155,14 +160,14 @@ focus {
 .FA_overall_container_smoke ul.FA_navigation {
 	display:block;
 	position:absolute;
-    bottom: 5px;
-    left: 15px;
+    bottom: 6px;
+    left: 0px;
 /*	background:#282828;*/
 	padding:0px !important;
 	list-style-type:none !important;
 	margin:0px !important;
-	text-align:left;
-	width:100%;	
+	text-align:right;
+	width:96%;	
 	height:17px;
 	border:none;
 }
@@ -171,7 +176,7 @@ focus {
         position: relative;
         z-index: 9999;
 		border:none;
-        margin-left:0;
+        margin-left:5px;
 		padding:0px !important;
 		list-style-type:none !important;
 		background:none;
@@ -184,7 +189,7 @@ focus {
 			width:7px;
 			height:17px;
 			line-height:17px;
-			font-size:25px;
+			font-size:40px;
 			background-image:url(images/nav.png);
 			background-position:bottom center;
 			background-repeat:no-repeat;

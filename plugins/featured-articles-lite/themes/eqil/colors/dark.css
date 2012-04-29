@@ -33,7 +33,9 @@
 }
 .FA_overall_container_smoke.dark .FA_featured_articles .FA_article a.FA_read_more{
 	color:#ccc;
-	background:url(../smoke.png);
+	text-transform: capitalize;
+    font-size: 15px;
+    margin-left: 5px;
 }
 
 /* Sideways navigation */

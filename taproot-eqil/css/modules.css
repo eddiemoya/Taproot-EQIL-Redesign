@@ -91,8 +91,14 @@
 .widget_em_widget li {
     margin-left: 0;
     list-style: none;
-    border-bottom: 1px solid #E1E1E1;
-    margin-bottom: 7px;
+    border-top: 1px solid #E1E1E1;
+    margin-top: 7px;
+    padding-top: 7px;
+}
+
+.widget_em_widget li:first-child {
+    border-top: 0 none;
+    margin-top: 0;
 }
 
 .widget_em_widget li > p {
