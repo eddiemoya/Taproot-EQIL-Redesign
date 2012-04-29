@@ -99,7 +99,7 @@ body > div.container_24.wrapper {
 #header {
     width: 960px;
     height: 127px;
-    background: url("../img/logotype.png") 115px 70px no-repeat, url("../img/type.outline.png") center 38px no-repeat;
+    background: url("../img/logotype.png") 80px 70px no-repeat, url("../img/type.outline.png") center 38px no-repeat;
     background-color: #366595;
     margin-bottom: 0px;
     position: relative;
