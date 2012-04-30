@@ -13,6 +13,9 @@
   Note: IE6 works fine without this fix.
 */
 
+html {
+    overflow-x: hidden;
+}
 body {
   min-width: 960px;
 }
