@@ -57,8 +57,8 @@
 
             <div class="clear"></div>
 
-            <div class="grid_24 alpha omega" id="footer_bottom">
-                <ul class="prefix_3">
+            <div class="grid_24 alpha omega container_24" id="footer_bottom">
+                <ul class="prefix_6">
                     <li><a href="http://www.equalityillinois.us/about-us/privacy-policy/">Privacy Policy</a></li>
                     <li><a href="http://www.equalityfederation.org/">Proud Member of the Equality Federation</a></li>
                     <li><a href=".">Terms of Use</a></li>

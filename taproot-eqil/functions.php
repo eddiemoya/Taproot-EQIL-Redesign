@@ -70,6 +70,7 @@ function register_my_menus() {
 add_action( 'init', 'register_my_menus' );
 
 
+
 function default_widget_layout(){
     $format = '<a href="#_EVENTURL">#_EVENTDATES</a><p> #_EVENTEXCERPT</p>';
 }
