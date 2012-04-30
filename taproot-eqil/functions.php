@@ -70,6 +70,7 @@ function register_my_menus() {
 add_action( 'init', 'register_my_menus' );
 
 
+
 function default_widget_layout(){
     $format = '<a href="#_EVENTURL">#_EVENTDATES</a><p> #_EVENTEXCERPT</p>';
 }
@@ -96,7 +97,7 @@ function related_news(){
         $category = $category[0];
         
         if(!empty($category) && $category->term_id != 0){
-            $news = new WP_Query( array('category' => $category->term_id, 'numberposts' => 1) );
+            $news = new WP_Query( array('cat' => $category->term_id, 'numberposts' => 1) );
 
             if($news->have_posts()) {
 

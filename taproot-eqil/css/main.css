@@ -14,6 +14,7 @@ main.css
 
 body {
     background-color: #fbfbfb;
+    word-wrap: break-word;
 }
 
 * {
@@ -64,7 +65,7 @@ a:hover {
 }
 #modules .gradient_offwhite.widget_links:first-child ul {
    margin-top: -15px;
-   margin-bottom: 22px;
+   margin-bottom: 25px;
 }
 #modules .gradient_offwhite.widget_links:first-child .widgettitle,
 #modules .gradient_offwhite.widget_links:first-child ul li{
@@ -77,8 +78,8 @@ a:hover {
 #modules .gradient_offwhite.widget_links:first-child a {
     position: absolute;
     
-    bottom: 8px;
-    left: 12px;
+    bottom: 5px;
+    left: 10px;
 }
 
 /* 2. #header styles */
@@ -97,8 +98,8 @@ body > div.container_24.wrapper {
 
 #header {
     width: 960px;
-    height: 139px;
-    background: url("../img/logotype.png") 115px 70px no-repeat, url("../img/type.outline.png") center 38px no-repeat;
+    height: 127px;
+    background: url("../img/logotype.png") 80px 70px no-repeat, url("../img/type.outline.png") center 38px no-repeat;
     background-color: #366595;
     margin-bottom: 0px;
     position: relative;
@@ -213,11 +214,18 @@ body > div.container_24.wrapper {
     background-color: #e5e5e5;
 }
 
-#footer_top > div {
+#footer_top > div > div {
     width: 150px;
     height: 125px;
     float: left;
     margin-top: 10px;
+}
+
+#footer_top > div {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 960px;
 }
 
 #footer_top .header {
@@ -227,11 +235,13 @@ body > div.container_24.wrapper {
     text-transform: uppercase;
 }
 
-#footer_top .body {
+#footer_top .body a, #footer_top .body {
     color: #363636;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 10px;
     line-height: 12px;
+    text-transform: none;
+    font-weight: normal;
 }
 
 #footer_bottom {

@@ -17,7 +17,7 @@
     <link rel="canonical" href="<?php bloginfo('url'); ?>"/> 
     <?php wp_head(); ?>
 </head> 
-<body <?php body_class() ?>>
+<body <?php body_class(); ?>>
     <div class="container_24 wrapper"> 
         <div id="header_wrapper">
             <div id="header" class="grid_24 alpha omega">
