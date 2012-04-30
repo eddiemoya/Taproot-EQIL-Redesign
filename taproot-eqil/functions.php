@@ -97,7 +97,7 @@ function related_news(){
         $category = $category[0];
         
         if(!empty($category) && $category->term_id != 0){
-            $news = new WP_Query( array('cat' => $category->term_id, 'numberposts' => 1) );
+            $news = new WP_Query( array('cat' => $category->term_id, 'posts_per_page' => 1) );
 
             if($news->have_posts()) {
 
