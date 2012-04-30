@@ -303,5 +303,11 @@ body.page-child  #divider_bar {
     margin:0;
 }
 
+/* Post Item - Added by John H. */
+
+.post a {
+    text-transform: none;
+    font-size: 12px;   
+}
 
 
